@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import {IUser} from "../iuser";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-list',
@@ -83,15 +84,18 @@ export class ListComponent implements OnInit {
       phone: 439090910
     }
   ];
-  displayedColumns: string[] = ['STT', 'Name', 'Email', 'Phone'];
+  displayedColumns: string[] = ['STT', 'Name', 'Email', 'Phone', 'Action'];
   dataSource = new MatTableDataSource<IUser>(this.users);
+  widthImage: string = '50';
+  isHideImg: boolean = false;
+  hideButtonContent: string = 'Hide';
+  message: string = '';
+
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
 
-  widthImage = '50';
-  isHideImg = false;
-  hideButtonContent = 'Hide';
-  constructor() { }
+  constructor(private toastr: ToastrService) {
+  }
 
   ngOnInit(): void {
 
@@ -103,15 +107,18 @@ export class ListComponent implements OnInit {
     // @ts-ignore
     this.dataSource.sort = this.sort;
   }
+
   showHideImage(): void {
-      this.isHideImg = !this.isHideImg;
-      this.hideButtonContent = (this.isHideImg) ? 'Show' : 'Hide'
+    this.isHideImg = !this.isHideImg;
+    this.hideButtonContent = (this.isHideImg) ? 'Show' : 'Hide'
   }
 
-  deleteUser(index: number) {
-      if (confirm('Are you sure?')) {
-        this.users.splice(index, 1)
-      }
+  deleteUser(index: number): void {
+    if (confirm('Are you sure?')) {
+      this.users.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
+      this.toastr.success('Delete success!', 'Success!');
+    }
   }
 
   searchUser(event: any) {
