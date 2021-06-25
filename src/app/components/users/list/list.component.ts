@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {IUser} from "../iuser";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-user-list',
@@ -26,67 +27,68 @@ export class ListComponent implements OnInit {
       phone: 439090910
     },
     {
-      id: 2,
+      id: 3,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 4,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 5,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 6,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 7,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 8,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 9,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     },
     {
-      id: 2,
+      id: 10,
       name: 'Tuan',
       email: 'tuan@gmail.com',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKrEWsrAgKx_6dg36oHtZISVqZo1z5WGCNQ&usqp=CAU',
       phone: 439090910
     }
   ];
-  displayedColumns: string[] = ['STT', 'Name', 'Email', 'Image', 'Phone'];
+  displayedColumns: string[] = ['STT', 'Name', 'Email', 'Phone'];
   dataSource = new MatTableDataSource<IUser>(this.users);
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort) sort: MatSort | undefined;
 
-  widthImage = '150';
+  widthImage = '50';
   isHideImg = false;
   hideButtonContent = 'Hide';
   constructor() { }
@@ -94,9 +96,12 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
   ngAfterViewInit() {
     // @ts-ignore
     this.dataSource.paginator = this.paginator;
+    // @ts-ignore
+    this.dataSource.sort = this.sort;
   }
   showHideImage(): void {
       this.isHideImg = !this.isHideImg;
