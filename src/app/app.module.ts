@@ -16,6 +16,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { MessageComponent } from './components/share/message/message.component';
 import {ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { UserAddComponent } from './components/users/user-add/user-add.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MenuComponent,
     ListComponent,
     FooterComponent,
-    MessageComponent
+    MessageComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatIconModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

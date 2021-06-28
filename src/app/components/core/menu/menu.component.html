@@ -1,7 +1,6 @@
 <mat-toolbar color="primary">
   <span class="fill-remaining-space"></span>
-
-  <button *ngFor="let menu of menus" mat-button>{{ menu }}</button>
+  <button *ngFor="let menu of menus" mat-button routerLink="{{menu.url}}">{{ menu.title }}</button>
   <button mat-button routerLink="login">Login</button>
   <button mat-button >Logout</button>
 </mat-toolbar>

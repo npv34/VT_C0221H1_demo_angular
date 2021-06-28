@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   menus = [
-    "Home", "About", "Contact"
+    {
+      "title" : "Home",
+      "url" : "home"
+    },
+    {
+      "title" : "Users",
+      "url" : "users"
+    }
   ];
   titlePage = 'App'
   constructor() { }

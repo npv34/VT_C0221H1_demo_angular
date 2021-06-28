@@ -6,9 +6,9 @@
   <mat-card-content>
     <mat-card-actions>
       <button class="btn btn-success" (click)="showHideImage()">{{ hideButtonContent }} image</button>
+      <button class="btn btn-primary" routerLink="create">Add</button>
     </mat-card-actions>
     <app-message [message]="message"></app-message>
-
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.
