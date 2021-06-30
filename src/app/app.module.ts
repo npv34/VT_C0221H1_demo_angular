@@ -18,6 +18,7 @@ import {ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { UserAddComponent } from './components/users/user-add/user-add.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ListComponent,
     FooterComponent,
     MessageComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+   Edit user
+  </div>
+  <div class="card-body">
+    <form *ngIf="formEditUser" [formGroup]="formEditUser" (ngSubmit)="edit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input formControlName="name" type="text" class="form-control" >
+        <div *ngIf="name && name.invalid && (name.dirty || name.touched)"
+             class="text-danger">
+          <div *ngIf="name.errors?.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors?.minlength">
+            Name is min 4 character.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" type="email" class="form-control" >
+        <div *ngIf="email && email.invalid && (email.dirty || email.touched)"
+             class="text-danger">
+          <div *ngIf="email.errors?.required">
+            Email is required.
+          </div>
+          <div *ngIf="email.errors?.email">
+            Email not format.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input formControlName="phone" type="text" class="form-control">
+        <div *ngIf="phone && phone.invalid && (phone.dirty || phone.touched)"
+             class="text-danger">
+          <div *ngIf="phone.errors?.required">
+            Phone is required.
+          </div>
+          <div *ngIf="phone.errors?.pattern">
+            Phone not format.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="button" routerLink="../../" class="btn btn-info">Cancel</button>
+    </form>
+  </div>
+</div>
+
