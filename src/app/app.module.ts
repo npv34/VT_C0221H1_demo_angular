@@ -19,6 +19,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { UserAddComponent } from './components/users/user-add/user-add.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { LoginComponent } from './pages/login/login.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
     MenuComponent,
     FooterComponent,
     MessageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,8 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     MatToolbarModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   exports: [

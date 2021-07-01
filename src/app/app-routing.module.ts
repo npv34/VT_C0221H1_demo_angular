@@ -4,6 +4,8 @@ import {ListComponent} from "./components/users/list/list.component";
 import {UserAddComponent} from "./components/users/user-add/user-add.component";
 import {UserEditComponent} from "./components/users/user-edit/user-edit.component";
 import {UsersModule} from "./components/users/users.module";
+import {LoginComponent} from "./pages/login/login.component";
+import {AuthGuardGuard} from "./auth-guard.guard";
 
 const routes: Routes = [
   {
@@ -11,12 +13,16 @@ const routes: Routes = [
     redirectTo: '/users',
     pathMatch: 'full'
   },
-
   {
     path: 'users',
-    loadChildren: () => import("./components/users/users.module").then(m => m.UsersModule)
+    loadChildren: () => import("./components/users/users.module").then(m => m.UsersModule),
+    canActivate: [AuthGuardGuard]
   },
 
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 
 ];
 
