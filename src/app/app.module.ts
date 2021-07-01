@@ -24,28 +24,23 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
   declarations: [
     AppComponent,
     MenuComponent,
-    ListComponent,
     FooterComponent,
     MessageComponent,
-    UserAddComponent,
-    UserEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatCardModule,
     MatButtonModule,
-    MatIconModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     MatToolbarModule,
-    ReactiveFormsModule
   ],
   providers: [],
+  exports: [
+    MessageComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
